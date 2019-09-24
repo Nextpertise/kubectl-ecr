@@ -13,4 +13,4 @@ RUN pip install setuptools
 RUN pip install wheel
 RUN pip install awscli
 
-CMD ["bash"]
+EXEC ["/root/do.sh", "${REGION}", "${ACCOUNTID}"]
