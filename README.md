@@ -46,17 +46,22 @@ accountid = 123456789012
 
 FAQ: 
 
-Question: Where can I find my accountid?
+- Question: Where can I find my accountid?
+
 Answer: Your account id is part of your ECR registry URL: `123456789012`.dkr.ecr.eu-central-1.amazonaws.com
 
-Question: Where can I find my region?
+- Question: Where can I find my region?
+
 Answer: Your region is part of your ECR registry URL: 123456789012.dkr.ecr.`eu-central-1`.amazonaws.com
 
-Question: I do not want to sent my access tokens to all namespaces.
+- Question: I do not want to sent my access tokens to all namespaces.
+
 Answer: Please send a pull request.
 
-Question: I have multiple registries, how do I add them?
+- Question: I have multiple registries, how do I add them?
+
 Answer: Either set up multiple cronjobs or sent a pull request.
 
-Question: Why do I have to set my region twice?
+- Question: Why do I have to set my region twice?
+
 Answer: Because I'm lazy, please sent a pull request.
