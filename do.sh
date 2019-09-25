@@ -4,7 +4,8 @@ region=$1
 accountid=$2
 
 password=$(aws ecr get-login --no-include-email --region ${region} --registry-ids ${accountid} | awk '{print $6}')
-secret=$(echo '{"auths":{"_ACCOUNTID_.dkr.ecr._REGION_.amazonaws.com":{"password":"_PASSWORD_","username":"AWS"}}}' | sed "s/_REGION_/${region}/g" | sed "s/_ACCOUNTID_/${accountid}/g" | sed "s/_PASSWORD_/${password}/g" | base64 -w 0)
+echo "[$password]"
+secret=$(echo -n '{"auths":{"_ACCOUNTID_.dkr.ecr._REGION_.amazonaws.com":{"password":"_PASSWORD_","username":"AWS"}}}' | sed "s/_REGION_/${region}/g" | sed "s/_ACCOUNTID_/${accountid}/g" | sed "s/_PASSWORD_/${password}/g" | base64 -w 0)
 
 namespaces=$(kubectl get namespaces -o json | jq -r .items[].metadata.name)
 for namespace in ${namespaces}; do
