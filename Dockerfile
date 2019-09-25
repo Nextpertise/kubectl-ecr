@@ -13,5 +13,8 @@ RUN pip install setuptools
 RUN pip install wheel
 RUN pip install awscli
 
-#ENTRYPOINT /root/do.sh ${REGION} ${ACCOUNTID}
-ENTRYPOINT bash 
+# Keep containter small
+RUN apt-get clean
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/* /root/.cache/pip
+
+ENTRYPOINT /root/do.sh ${REGION} ${ACCOUNTID}
