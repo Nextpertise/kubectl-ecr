@@ -6,6 +6,7 @@ AWS ECR access tokens are JSON webtokens with a lifetime of 12 hours, you need t
 
 ## How:
 This container sends your ECR access token to all namespaces of your kubernetes cluser via `kubectl`.
+Rancher project and user namespaces will be ignored to avoid recursion issues.
 
 ## Config:
 
